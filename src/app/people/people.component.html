@@ -1,0 +1,8 @@
+<ul>
+  <li *ngFor="let person of people">
+    {{person.name}}
+  </li>
+  <button (click)="switchPage(-1)">Prev</button>
+  <span>{{currentPage}}</span>
+  <button (click)="switchPage(1)">Next</button>
+</ul>

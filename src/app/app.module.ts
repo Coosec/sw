@@ -1,18 +1,24 @@
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { PeopleComponent } from './people/people.component';
+import { PeopleService } from './services/people.service';
+
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PeopleComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [PeopleService, HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
