@@ -29,7 +29,7 @@ export class PeopleComponent implements OnInit {
     this.currentPage = page;
     this.peopleService.getPeople(page).subscribe((people) => {
       this.people = people.results;
-    });
+    })
   }
 
 }
