@@ -1,5 +1,5 @@
 <ul>
-  <li *ngFor="let station of stations">
+  <li *ngFor="let station of stations" (click)="showData(station.id)">
     {{station.id}}
   </li>
 </ul>

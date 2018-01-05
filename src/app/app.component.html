@@ -1,3 +1,4 @@
 <h1>Zanieczyszczenia powietrza</h1>
 <app-cities (selectedId)="receiveSelectedId($event)"></app-cities>
-<app-stations [selectedCity]="selectedId"></app-stations>
+<app-stations (selectedStationId)="receiveSelectedStationId($event)" [selectedCity]="selectedId" ></app-stations>
+<app-station [selectedStation]="selectedStationId" [selectedCity]="selectedId"></app-station>

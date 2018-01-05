@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { CitiesComponent } from './cities/cities.component';
 import { CitiesService } from './services/cities.service';
 import { StationsComponent } from './stations/stations.component';
+import { StationComponent } from './station/station.component';
 
 
 
@@ -14,7 +15,8 @@ import { StationsComponent } from './stations/stations.component';
   declarations: [
     AppComponent,
     CitiesComponent,
-    StationsComponent
+    StationsComponent,
+    StationComponent
   ],
   imports: [
     BrowserModule,

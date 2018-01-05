@@ -11,7 +11,13 @@ export class CitiesService {
   }
 
   public getStations(cityId) {
+    console.log('getStations: ', cityId);
     return this.http.get<any>(`https://api.smog.info.pl/cities/${cityId}/stations`);
+  }
+
+  public getStationData(cityId, stationId) {
+    console.log('getStationData: ', cityId, ' ', stationId);
+    return this.http.get<any>(`https://api.smog.info.pl/cities/${cityId}/stations/${stationId}/measurements`);
   }
 
 }

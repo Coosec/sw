@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, Output, EventEmitter } from '@angular/core';
 import { CitiesService } from './../services/cities.service';
 
 @Component({
@@ -9,6 +9,7 @@ import { CitiesService } from './../services/cities.service';
 export class StationsComponent implements OnInit, OnChanges {
 
   @Input() selectedCity;
+  @Output() selectedStationId = new EventEmitter();
   stations = [];
 
   constructor(private citiesService: CitiesService) { }
@@ -19,6 +20,7 @@ export class StationsComponent implements OnInit, OnChanges {
   ngOnChanges() {
     if (this.selectedCity) {
       this.showStations();
+      this.showData(undefined);
     }
   }
 
@@ -26,6 +28,10 @@ export class StationsComponent implements OnInit, OnChanges {
     this.citiesService.getStations(this.selectedCity).subscribe(s => {
       this.stations = s._embedded.records;
     });
+  }
+
+  showData(stationId) {
+    this.selectedStationId.emit(stationId);
   }
 
 }

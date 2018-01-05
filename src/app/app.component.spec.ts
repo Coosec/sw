@@ -1,3 +1,4 @@
+import { StationComponent } from './station/station.component';
 import { StationsComponent } from './stations/stations.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TestBed, async } from '@angular/core/testing';
@@ -10,7 +11,8 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent,
         CitiesComponent,
-        StationsComponent
+        StationsComponent,
+        StationComponent
       ],
       providers: [
         CitiesService,
