@@ -4,21 +4,23 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-import { PeopleComponent } from './people/people.component';
-import { PeopleService } from './services/people.service';
+import { CitiesComponent } from './cities/cities.component';
+import { CitiesService } from './services/cities.service';
+import { StationsComponent } from './stations/stations.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    PeopleComponent
+    CitiesComponent,
+    StationsComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
   ],
-  providers: [PeopleService, HttpClient],
+  providers: [CitiesService, HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

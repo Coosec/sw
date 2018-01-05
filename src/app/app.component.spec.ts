@@ -1,17 +1,19 @@
+import { StationsComponent } from './stations/stations.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-import { PeopleComponent } from './people/people.component';
-import { PeopleService } from './services/people.service';
+import { CitiesComponent } from './cities/cities.component';
+import { CitiesService } from './services/cities.service';
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent,
-        PeopleComponent
+        CitiesComponent,
+        StationsComponent
       ],
       providers: [
-        PeopleService,
+        CitiesService,
         HttpClient
       ],
       imports: [
@@ -33,6 +35,6 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('SW App');
+    expect(compiled.querySelector('h1').textContent).toContain('Zanieczyszczenia powietrza');
   }));
 });

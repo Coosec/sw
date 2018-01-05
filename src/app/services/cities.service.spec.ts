@@ -1,13 +1,13 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { PeopleService } from './people.service';
+import { CitiesService } from './cities.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
-describe('PeopleService', () => {
+describe('CitiesService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
-        PeopleService,
+        CitiesService,
         HttpClient
       ],
       imports: [
@@ -16,7 +16,7 @@ describe('PeopleService', () => {
     });
   });
 
-  it('should be created', inject([PeopleService], (service: PeopleService) => {
+  it('should be created', inject([CitiesService], (service: CitiesService) => {
     expect(service).toBeTruthy();
   }));
 });

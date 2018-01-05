@@ -1,2 +1,3 @@
-<h1>SW App</h1>
-<app-people></app-people>
+<h1>Zanieczyszczenia powietrza</h1>
+<app-cities (selectedId)="receiveSelectedId($event)"></app-cities>
+<app-stations [selectedCity]="selectedId"></app-stations>

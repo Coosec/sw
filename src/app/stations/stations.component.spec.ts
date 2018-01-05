@@ -1,20 +1,18 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { PeopleService } from './../services/people.service';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PeopleComponent } from './people.component';
+import { StationsComponent } from './stations.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { CitiesService } from './../services/cities.service';
 
-describe('PeopleComponent', () => {
-  let component: PeopleComponent;
-  let fixture: ComponentFixture<PeopleComponent>;
+describe('StationsComponent', () => {
+  let component: StationsComponent;
+  let fixture: ComponentFixture<StationsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        PeopleComponent
-      ],
+      declarations: [ StationsComponent ],
       providers: [
-        PeopleService,
+        CitiesService,
         HttpClient
       ],
       imports: [
@@ -25,7 +23,7 @@ describe('PeopleComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PeopleComponent);
+    fixture = TestBed.createComponent(StationsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
