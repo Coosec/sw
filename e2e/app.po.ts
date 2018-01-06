@@ -16,4 +16,8 @@ export class AppPage {
   getStation(stationId) {
     return element(by.css(`#${stationId}`));
   }
+
+  getMeasurement(measurementId) {
+    return element(by.css(`#${measurementId} span`));
+  }
 }
