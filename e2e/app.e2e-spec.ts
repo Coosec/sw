@@ -11,4 +11,9 @@ describe('sw App', () => {
     page.navigateTo();
     expect(page.getParagraphText()).toEqual('Zanieczyszczenia powietrza');
   });
+
+  it('should display proper city name', () => {
+    page.navigateTo();
+    expect(page.getCity('krakow').getText()).toEqual('Kraków');
+  });
 });

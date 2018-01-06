@@ -1,5 +1,5 @@
 <ul>
-  <li *ngFor="let city of cities" (click)="showStations(city.id)">
+  <li *ngFor="let city of cities" (click)="showStations(city.id)" id="{{city.id}}">
     {{city.name}}
   </li>
 </ul>
