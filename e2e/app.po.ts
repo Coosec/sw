@@ -12,4 +12,8 @@ export class AppPage {
   getCity(cityId) {
     return element(by.css(`#${cityId}`));
   }
+
+  getStation(stationId) {
+    return element(by.css(`#${stationId}`));
+  }
 }

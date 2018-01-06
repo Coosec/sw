@@ -16,4 +16,10 @@ describe('sw App', () => {
     page.navigateTo();
     expect(page.getCity('krakow').getText()).toEqual('Kraków');
   });
+
+  it('should show proper stations list', () => {
+    page.navigateTo();
+    page.getCity('krakow').click();
+    expect(page.getStation('station-krasinskiego').getText()).toEqual('krasinskiego');
+  });
 });
