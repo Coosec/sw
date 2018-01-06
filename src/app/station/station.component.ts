@@ -19,7 +19,7 @@ export class StationComponent implements OnInit, OnChanges {
     this.options = {
       title : { text : 'Wykres dobowy' },
       series: [{
-        name:'pm 2.5',
+        name: 'pm 2.5',
         data: [0],
       }]
     };
@@ -37,11 +37,11 @@ export class StationComponent implements OnInit, OnChanges {
   showData() {
     this.citiesService.getStationData(this.selectedCity, this.selectedStation).subscribe(d => {
       this.data = d._embedded.records[0];
-      let x = this.prepareData(d._embedded.records);
+      const x = this.prepareData(d._embedded.records);
       this.options = {
         title : { text : 'Wykres dobowy' },
         series: [{
-          name:'pm 2.5',
+          name: 'pm 2.5',
           data: x,
         }]
       };
@@ -49,7 +49,7 @@ export class StationComponent implements OnInit, OnChanges {
   }
 
   prepareData(array) {
-    let result = array.map(a => a.pm25).map(a => a === undefined ? 0 : a);
+    const result = array.map(a => a.pm25).map(a => a === undefined ? 0 : a);
     return result;
   }
 
