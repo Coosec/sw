@@ -10,10 +10,19 @@ export class StationComponent implements OnInit, OnChanges {
   @Input() selectedCity;
   @Input() selectedStation;
   data = {};
+  options;
+
 
   constructor(private citiesService: CitiesService) { }
 
   ngOnInit() {
+    this.options = {
+      title : { text : 'Wykres dobowy' },
+      series: [{
+        name:'pm 2.5',
+        data: [0],
+      }]
+    };
   }
 
   ngOnChanges() {
@@ -28,7 +37,20 @@ export class StationComponent implements OnInit, OnChanges {
   showData() {
     this.citiesService.getStationData(this.selectedCity, this.selectedStation).subscribe(d => {
       this.data = d._embedded.records[0];
+      let x = this.prepareData(d._embedded.records);
+      this.options = {
+        title : { text : 'Wykres dobowy' },
+        series: [{
+          name:'pm 2.5',
+          data: x,
+        }]
+      };
     });
+  }
+
+  prepareData(array) {
+    let result = array.map(a => a.pm25).map(a => a === undefined ? 0 : a);
+    return result;
   }
 
 }

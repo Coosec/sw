@@ -5,6 +5,8 @@ import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { CitiesComponent } from './cities/cities.component';
 import { CitiesService } from './services/cities.service';
+import { ChartModule } from 'angular2-highcharts';
+
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -19,7 +21,8 @@ describe('AppComponent', () => {
         HttpClient
       ],
       imports: [
-        HttpClientModule
+        HttpClientModule,
+        ChartModule.forRoot(require('highcharts'))
       ]
     }).compileComponents();
   }));

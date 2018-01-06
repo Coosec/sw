@@ -9,6 +9,7 @@ import { CitiesService } from './services/cities.service';
 import { StationsComponent } from './stations/stations.component';
 import { StationComponent } from './station/station.component';
 
+import { ChartModule } from 'angular2-highcharts';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { StationComponent } from './station/station.component';
   imports: [
     BrowserModule,
     HttpClientModule,
+    ChartModule.forRoot(require('highcharts'))
   ],
   providers: [CitiesService, HttpClient],
   bootstrap: [AppComponent]

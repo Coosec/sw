@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { StationComponent } from './station.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CitiesService } from './../services/cities.service';
+import { ChartModule } from 'angular2-highcharts';
 
 describe('StationComponent', () => {
   let component: StationComponent;
@@ -16,7 +17,8 @@ describe('StationComponent', () => {
         HttpClient
       ],
       imports: [
-        HttpClientModule
+        HttpClientModule,
+        ChartModule.forRoot(require('highcharts'))
       ]
     })
     .compileComponents();
