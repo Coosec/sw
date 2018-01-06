@@ -3,7 +3,14 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { StationComponent } from './station.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CitiesService } from './../services/cities.service';
+
 import { ChartModule } from 'angular2-highcharts';
+import { HighchartsStatic } from 'angular2-highcharts/dist/HighchartsService';
+
+declare var require: any;
+export function highchartsFactory() {
+  return require('highcharts');
+}
 
 describe('StationComponent', () => {
   let component: StationComponent;
@@ -14,11 +21,15 @@ describe('StationComponent', () => {
       declarations: [ StationComponent ],
       providers: [
         CitiesService,
-        HttpClient
+        HttpClient,
+        {
+          provide: HighchartsStatic,
+          useFactory: highchartsFactory
+        }
       ],
       imports: [
         HttpClientModule,
-        ChartModule.forRoot(require('highcharts'))
+        ChartModule
       ]
     })
     .compileComponents();
