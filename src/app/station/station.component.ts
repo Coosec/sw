@@ -49,7 +49,7 @@ export class StationComponent implements OnInit, OnChanges {
   }
 
   prepareData(array) {
-    const result = array.map(a => a.pm25).map(a => a === undefined ? 0 : a);
+    const result = array.map(a => a.pm25).map(a => a === undefined ? 0 : a).reverse();
     return result;
   }
 

@@ -48,7 +48,7 @@ describe('StationComponent', () => {
   it('prepare data method should works propperly', () => {
     const arrIn = [{pm25: 10}, {pm25: 15}];
     const x = component.prepareData(arrIn);
-    const arrOut = [10, 15];
+    const arrOut = [15, 10];
     expect(x).toEqual(arrOut);
   });
 
