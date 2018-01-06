@@ -10,7 +10,12 @@ import { StationsComponent } from './stations/stations.component';
 import { StationComponent } from './station/station.component';
 
 import { ChartModule } from 'angular2-highcharts';
+import { HighchartsStatic } from 'angular2-highcharts/dist/HighchartsService';
 
+declare var require: any;
+export function highchartsFactory() {
+  return require('highcharts');
+}
 
 @NgModule({
   declarations: [
@@ -22,9 +27,14 @@ import { ChartModule } from 'angular2-highcharts';
   imports: [
     BrowserModule,
     HttpClientModule,
-    ChartModule.forRoot(require('highcharts'))
+    ChartModule,
   ],
-  providers: [CitiesService, HttpClient],
+  providers: [CitiesService, HttpClient,
+    {
+      provide: HighchartsStatic,
+      useFactory: highchartsFactory
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
