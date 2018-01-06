@@ -5,6 +5,7 @@ describe('sw App', () => {
   let page: AppPage;
 
   beforeEach(() => {
+    browser.driver.manage().window().setSize(1920, 1080);
     page = new AppPage();
   });
 
@@ -25,7 +26,6 @@ describe('sw App', () => {
   });
 
   it('should show pm25 measurement', () => {
-    browser.driver.manage().window().maximize()
     page.navigateTo();
     page.getCity('krakow').click();
     page.getStation('station-krasinskiego').click();
