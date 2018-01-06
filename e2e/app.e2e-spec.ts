@@ -1,3 +1,4 @@
+import { browser } from 'protractor';
 import { AppPage } from './app.po';
 
 describe('sw App', () => {
@@ -7,23 +8,24 @@ describe('sw App', () => {
     page = new AppPage();
   });
 
-  xit('should display welcome message', () => {
+  it('should display welcome message', () => {
     page.navigateTo();
     expect(page.getParagraphText()).toEqual('Zanieczyszczenia powietrza');
   });
 
-  xit('should display proper city name', () => {
+  it('should display proper city name', () => {
     page.navigateTo();
     expect(page.getCity('krakow').getText()).toEqual('Kraków');
   });
 
-  xit('should show proper stations list', () => {
+  it('should show proper stations list', () => {
     page.navigateTo();
     page.getCity('krakow').click();
     expect(page.getStation('station-krasinskiego').getText()).toEqual('krasinskiego');
   });
 
   it('should show pm25 measurement', () => {
+    browser.driver.manage().window().maximize()
     page.navigateTo();
     page.getCity('krakow').click();
     page.getStation('station-krasinskiego').click();
